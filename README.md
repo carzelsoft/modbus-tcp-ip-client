@@ -1,7 +1,7 @@
 
 # Modify of Modbus TCP/Ip  Client
 ## by Carlos Zelaya
-a simple Modbus library for communicating with remote Modbus devices via TCP/IP.
+Modbus library for communicating (16bit and 32bit registry) with remote Modbus devices via TCP/IP.
 
 
 ## Examples
