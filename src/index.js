@@ -188,7 +188,7 @@ class ModbusTcpIpClient {
     const port = this._privateMethods.getPort();
     return new Promise((resolve, reject) => {
       const client = net
-        .connect({ port: port, localAddress: ip, family: 4 }, () => {
+        .connect({ port: port, host: ip, family: 4 }, () => {
           this._privateMethods.setClient(client);
           this._privateMethods.setIsConnected(true);
           if (typeof timeout === "number") {
