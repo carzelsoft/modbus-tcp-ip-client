@@ -15,9 +15,16 @@ const client = new ModbusTcpIpClient(address,port,unitId,timeout)
 // you can overright the timeout value
 
 
+  read32bit(423,1)  
+  read16bit(423,1)  
 
-    read32bit(423,1)  // read address 432 
-
+async function read16bit(address) { 
+        await client.connect(timeout)       
+        
+        const r = await client.readHoldingRegisters(address, 5); // read 5 register of 16bit
+                        
+        console.log('Address:'+address+'->'+r)
+}
 
 
 
