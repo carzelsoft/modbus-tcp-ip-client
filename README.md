@@ -21,6 +21,42 @@ const client = new ModbusTcpIpClient(address,port,unitId,timeout)
 
 read(1,600) // read range of address
 
+ read32bit(423,1)  //read  address 423 with two consecutive 16bit number begining from position 1
+
+
+
+async function read32bit( address,inicialposicion) { 
+
+    const quantity=5; 
+   await client.connect(timeout)
+   
+    const r = await client.readHoldingRegisters(address, quantity);
+
+ var z1 =  r[inicialposicion]; // choose your order by assigning a proper value
+
+ var z2 =r[inicialposicion+1]; // choose your order by assigning a proper value
+
+ var value = z2<<16 | z1;
+
+ var b=value & 0x7fffff;
+
+ var e=((value>>23) & 0xff)-127;
+
+ var m=1+b*Math.pow(2, -23);
+
+ var result=m*Math.pow(2, e);
+
+ if (value & 0x80000000) {
+
+result=-result;
+
+ }
+ console.log(r)
+console.log('result:'+result)
+
+    
+}
+
 
 async function read( ini, fin) {
     const r =await client.connect(timeout)
