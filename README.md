@@ -1,9 +1,13 @@
 const ModbusTcpIpClient = require('modbus-tcp-ip-client')
 
 const address = '10.0.x.x'
+
 const port = 502
+
 const unitId = 1
+
 const timeout = 800
+
 
 
 // timeout is optional with  default value of 200 . 
@@ -18,7 +22,7 @@ const client = new ModbusTcpIpClient(address,port,unitId,timeout)
 read(1,600) // read range of address
 
 
-async function leer( ini, fin) {
+async function read( ini, fin) {
     const r =await client.connect(timeout)
     for (let i = ini; i <= fin; i++) {
    
