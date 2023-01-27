@@ -27,8 +27,11 @@ async function read( ini, fin) {
     for (let i = ini; i <= fin; i++) {
    
  const r = await client.readHoldingRegisters(i, 5); // read 5 register of 16bit
- if(r[0]!=0 ||  r[1]!=0 || r[2]!=0 ||  r[3]!=0 ||  r[4]!=0 ){
+ 
+ if(r[0]!=0 ||  r[1]!=0 || r[2]!=0 ||  r[3]!=0 ||  r[4]!=0 ){ // only show when are diferent to zero
+ 
     console.log('Address:'+i+'->'+r)
+    
  }
 
     }
