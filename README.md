@@ -1,3 +1,6 @@
+//THIS EXAMPLE CAN READ 32BIT JOIN TWO REGISTER OF 16BIT 
+//BY CARLOS ZELAYA
+
 const ModbusTcpIpClient = require('modbus-tcp-ip-client')
 
 const address = '10.0.x.x'
