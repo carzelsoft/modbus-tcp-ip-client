@@ -15,7 +15,7 @@ const client = new ModbusTcpIpClient(address,port,unitId,timeout)
 // you can overright the timeout value
 
 
-read(1,600) - read range of address
+read(1,600) // read range of address
 
 
 async function leer( ini, fin) {
